@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renata Gallucci | Tech & UX Portfolio</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS para recrear el efecto de motion/react -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+    <div id="cursor-light"></div>
+
+    <nav>
+        <div class="container nav-flex">
+            <a href="#" class="logo">RENA<span>.</span></a>
+            <div class="nav-links">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#trayectoria">Trayectoria</a>
+                <a href="#tecnologias">Tecnologías</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto" class="btn-nav">Hablemos</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container" data-aos="zoom-out-up">
+            <span class="badge">Estudiante Técnica • UX/UI • Dev</span>
+            <h1>Soy Renata Gallucci</h1>
+            <p class="hero-subtitle">Estudiante de computación y desarrolladora full-stack</p>
+            <div class="hero-actions">
+                <a href="assets/docs/Curriculum.pdf" download="Curriculum_Renata_Gallucci.pdf" class="btn-primary">Descargar CV <i class="fas fa-download"></i></a>
+                <a href="https://github.com/Renaaa189" target="_blank" class="btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+        <div class="container max-800">
+            <h2 class="centered-title" data-aos="fade-up">Sobre <span class="text-accent">mí</span></h2>
+            <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+                <p>Soy estudiante de escuela técnica con formación en informática, con experiencia en programación, análisis de datos, bases de datos y diseño UX/UI. A lo largo de mi formación, complementé mis estudios con diversos cursos.</p>
+                <p>Me destaco por mi capacidad de aprendizaje rápido, mi iniciativa y mi enfoque en la resolución de problemas mediante soluciones creativas, eficientes y centradas en el usuario.</p>
+                <p>Tengo experiencia en el desarrollo de proyectos colaborativos, incluyendo la planificación, organización de tareas y coordinación de equipos, integrando conocimientos de programación, diseño y análisis para optimizar procesos y mejorar la presentación de resultados.</p>
+                <p>Busco oportunidades para desarrollarme en el área de tecnología y diseño digital, aplicando mis conocimientos en programación, análisis de datos y UX/UI. Mi objetivo es seguir aprendiendo, participar en proyectos y aportar soluciones que mejoren la experiencia de los usuarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABILIDADES BLANDAS -->
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="centered-title" data-aos="fade-up">Habilidades <span class="text-accent">Blandas</span></h2>
+            <div class="soft-skills-grid">
+                <!-- Liderazgo -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-users"></i>
+                    <h3>Liderazgo</h3>
+                    <p>Coordinación y gestión de equipos</p>
+                </div>
+                <!-- Aprendizaje Rápido -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Aprendizaje Rápido</h3>
+                    <p>Adaptación a nuevas tecnologías</p>
+                </div>
+                <!-- Resolución -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-crosshairs"></i>
+                    <h3>Resolución de Problemas</h3>
+                    <p>Soluciones creativas y eficientes</p>
+                </div>
+                <!-- Comunicación -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-comment-dots"></i>
+                    <h3>Comunicación</h3>
+                    <p>Comunicación efectiva</p>
+                </div>
+                <!-- Responsabilidad -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-heart"></i>
+                    <h3>Responsabilidad</h3>
+                    <p>Compromiso con los proyectos</p>
+                </div>
+                <!-- Proactividad -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Proactividad</h3>
+                    <p>Iniciativa y autonomía</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAYECTORIA (Línea de tiempo) -->
+    <section id="trayectoria">
+    <div class="container max-800">
+
+        <h2 class="centered-title" data-aos="fade-up">
+            Mi <span class="text-accent">Trayectoria</span>
+        </h2>
+
+        <div class="timeline-container">
+
+            <div class="timeline-column">
+
+                <div class="timeline-line"></div>
+
+                <!-- ESCUELA -->
+                <div class="timeline-item" data-aos="fade-left">
+
+                    <div class="t-dot"></div>
+
+                    <div class="t-glass">
+
+                        <span class="t-year">
+                            2021 - Actualidad
+                        </span>
+
+                        <h3>
+                            Secundaria Técnica 36,
+                            “Almirante Brown”
+                        </h3>
+
+                    </div>
+
+                </div>
+
+                <!-- DISEÑO WEB -->
+                <div class="timeline-item"
+                    data-aos="fade-left"
+                    data-aos-delay="100">
+
+                    <div class="t-dot"></div>
+
+                    <div class="t-glass">
+
+                        <span class="t-year">
+                            2026 - Actualidad
+                        </span>
+
+                        <h3>
+                            Curso diseño web
+                        </h3>
+
+                    </div>
+
+                </div>
+
+                <!-- PYTHON IA -->
+                <div class="timeline-item"
+                    data-aos="fade-left"
+                    data-aos-delay="200">
+
+                    <div class="t-dot"></div>
+
+                    <div class="t-glass">
+
+                        <span class="t-year">
+                            2025
+                        </span>
+
+                        <h3>
+                            Curso de inteligencia artificial
+                            con Python
+                        </h3>
+
+                        <p class="t-inst">
+                            Finalizado en 2025
+                        </p>
+
+                        <button class="cert-btn">
+                            Ver certificado
+                        </button>
+
+                        <div class="cert-preview">
+
+                            <img
+                                src="assets/certificados/PythonConIa.jfif"
+                                alt="Certificado Python IA"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- UX/UI -->
+                <div class="timeline-item"
+                    data-aos="fade-left"
+                    data-aos-delay="300">
+
+                    <div class="t-dot"></div>
+
+                    <div class="t-glass">
+
+                        <span class="t-year">
+                            2024
+                        </span>
+
+                        <h3>
+                            Curso de diseño UX/UI
+                        </h3>
+
+                        <p class="t-inst">
+                            Finalizado en 2024
+                        </p>
+
+                        <button class="cert-btn">
+                            Ver certificado
+                        </button>
+
+                        <div class="cert-preview">
+
+                            <img
+                                src="assets/certificados/DiseñoUxUi.jfif"
+                                alt="Certificado UX/UI"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- TECNOLOGÍAS -->
+    <section id="tecnologias">
+        <div class="container">
+            <h2 class="centered-title" data-aos="fade-up"><span class="text-accent">Tecnologías</span> & Herramientas</h2>
+            <div class="tech-center-grid">
+                <!-- Las 14 tecnologías solicitadas -->
+                <div class="tech-box tech-python" data-aos="zoom-in"><i class="devicon-python-plain"></i><span>Python</span></div>
+                <div class="tech-box tech-javascript" data-aos="zoom-in"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                <div class="tech-box tech-react" data-aos="zoom-in"><i class="devicon-react-original"></i><span>React</span></div>
+                <div class="tech-box tech-java" data-aos="zoom-in"><i class="devicon-java-plain"></i><span>Java</span></div>
+                <div class="tech-box tech-node" data-aos="zoom-in"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                <div class="tech-box tech-html" data-aos="zoom-in"><i class="devicon-html5-plain"></i><span>HTML</span></div>
+                <div class="tech-box tech-css" data-aos="zoom-in"><i class="devicon-css3-plain"></i><span>CSS</span></div>
+                <div class="tech-box tech-sql" data-aos="zoom-in"><i class="devicon-mysql-plain"></i><span>SQL</span></div>
+                <div class="tech-box tech-figma" data-aos="zoom-in"><i class="devicon-figma-plain"></i><span>Figma</span></div>
+                <div class="tech-box tech-vscode" data-aos="zoom-in"><i class="devicon-vscode-plain"></i><span>VS Code</span></div>
+                <div class="tech-box tech-eclipse" data-aos="zoom-in"><i class="devicon-eclipse-plain"></i><span>Eclipse</span></div>
+                <div class="tech-box tech-sequelize" data-aos="zoom-in"><i class="devicon-sequelize-plain"></i><span>Sequelize</span></div>
+                <div class="tech-box tech-poo" data-aos="zoom-in"><i class="fas fa-database"></i><span>POO</span></div>
+                <div class="tech-box tech-database" data-aos="zoom-in"><i class="fas fa-server"></i><span>Bases de Datos</span></div>
+            </div>
+
+            <div class="extra-exp" data-aos="fade-up" data-aos-delay="400">
+                <p>Experiencia adicional en: <span>UX/UI Design</span> • <span>Análisis de Datos</span> • <span>Inteligencia Artificial</span> • <span>Automatización</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos">
+        <div class="container">
+
+            <h2 class="centered-title" data-aos="fade-up">
+                Mis <span class="text-accent">Proyectos</span>
+            </h2>
+
+            <div class="projects-wrapper">
+
+                <!-- =========================
+                    EN DESARROLLO (ARRIBA)
+                ========================== -->
+
+                <div class="p-card" data-aos="fade-up">
+
+                    <div class="p-header">
+                        <h3>TuBuffet</h3>
+
+                        <div class="p-links">
+                            <a href="https://github.com/Renaaa189/TuBuffet.git" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+
+                        <span class="status-dev">En desarrollo</span>
+                    </div>
+
+                    <p>Aplicación móvil para pedidos en buffets escolares con billetera virtual.</p>
+
+                    <ul class="p-features">
+                        <li>Pedidos anticipados</li>
+                        <li>Billetera virtual</li>
+                        <li>Panel de administración</li>
+                    </ul>
+
+                    <div class="p-langs">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+
+                <div class="p-card" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="p-header">
+                        <h3>KnowBeat</h3>
+
+                        <div class="p-links">
+                            <a href="https://github.com/Santino7537/Knowbeat.git" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+
+                        <span class="status-dev">En desarrollo</span>
+                    </div>
+
+                    <p>Sitio web de aprendizaje musical con comunidad y clases interactivas.</p>
+
+                    <ul class="p-features">
+                        <li>Clases guiadas</li>
+                        <li>Foro en tiempo real</li>
+                        <li>Organización de contenido</li>
+                    </ul>
+
+                    <div class="p-langs">
+                        <span>React</span>
+                        <span>MongoDB</span>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+
+                <!-- =========================
+                    TERMINADOS (ABAJO)
+                ========================== -->
+
+                <div class="p-card" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="project-image">
+                        <img src="assets/img/NEXORA.PNG" alt="">
+                    </div>
+
+                    <div class="p-header">
+                        <h3>NEXORA IA</h3>
+
+                        <div class="p-links">
+                            <a href="https://github.com/Renaaa189/Nexora.git" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p>Chatbot con inteligencia artificial en Python.</p>
+
+                    <ul class="p-features">
+                        <li>Chat en tiempo real</li>
+                        <li>Múltiples conversaciones</li>
+                        <li>Personalización</li>
+                    </ul>
+
+                    <div class="p-langs">
+                        <span>Python</span>
+                        <span>Streamlit</span>
+                        <span>Groq API</span>
+                    </div>
+                </div>
+
+                <div class="p-card" data-aos="fade-up" data-aos-delay="300">
+
+                    <div class="project-image">
+                        <img src="assets/img/NextRead.PNG" alt="">
+                    </div>
+
+                    <div class="p-header">
+                        <h3>NextRead</h3>
+
+                        <div class="p-links">
+                            <a href="https://github.com/AlejoGuerraa/nextRead.git" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://nextread.net" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p>Red social de libros con reseñas y comunidad lectora.</p>
+
+                    <ul class="p-features">
+                        <li>Reseñas</li>
+                        <li>Seguidores</li>
+                        <li>Listas personalizadas</li>
+                    </ul>
+
+                    <div class="p-langs">
+                        <span>React</span>
+                        <span>Express</span>
+                    </div>
+                </div>
+
+                <div class="p-card" data-aos="fade-up" data-aos-delay="400">
+
+                    <div class="project-image">
+                        <img src="assets/img/NetStat.png" alt="">
+                    </div>
+
+                    <div class="p-header">
+                        <h3>NetStat</h3>
+
+                        <div class="p-links">
+                            <a href="https://github.com/Renaaa189/NetStat.git" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p>Escaneo de redes locales y análisis de dispositivos.</p>
+
+                    <ul class="p-features">
+                        <li>IPs activas</li>
+                        <li>Latencia</li>
+                        <li>Exportación de datos</li>
+                    </ul>
+
+                    <div class="p-langs">
+                        <span>Java</span>
+                        <span>Swing</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="container max-600" data-aos="fade-up">
+            <h2 class="centered-title">Hablemos</h2>
+
+            <form class="contact-form" action="https://formsubmit.co/renatagallucci3@gmail.com" method="POST">
+                
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde mi portafolio">
+
+                <input type="text" name="Nombre" placeholder="Nombre" required>
+
+                <input type="email" name="Email" placeholder="Email" required>
+
+                <textarea 
+                    name="Mensaje" 
+                    placeholder="Cuéntame sobre tu proyecto..." 
+                    rows="5" 
+                    required>
+                </textarea>
+
+                <button type="submit" class="btn-primary-full">
+                    Enviar Mensaje
+                </button>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-flex">
+
+            <div class="footer-info">
+                <p>&copy; 2026 Renata Gallucci</p>
+                <p>
+                    Redes sociales y contacto directo para proyectos y consultas.
+                </p>
+            </div>
+
+            <div class="social-footer">
+
+                <a 
+                    href="https://www.linkedin.com/in/renata-gallucci-/" 
+                    target="_blank"
+                >
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a 
+                    href="https://github.com/Renaaa189" 
+                    target="_blank"
+                >
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="mailto: renatagallucci3@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
