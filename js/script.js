@@ -182,6 +182,24 @@ certButtons.forEach((btn) => {
 
 });
 
+const stickyCards = document.querySelectorAll('.sticky-card');
+
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.25
+    });
+
+    stickyCards.forEach((card) => revealObserver.observe(card));
+} else {
+    stickyCards.forEach((card) => card.classList.add('visible'));
+}
+
 // PROJECT MODAL + CAROUSEL
 const projectModal = document.getElementById('project-modal');
 const projectCards = document.querySelectorAll('.project-trigger');
@@ -424,7 +442,7 @@ function initMainTechFilters() {
         db: ['tech-sql', 'tech-database', 'tech-sequelize']
     };
 
-    function apply(filter) {
+    function apply(filterA) {
         techBoxes.forEach(box => {
             if (filter === 'all') {
                 box.style.display = '';
@@ -447,3 +465,4 @@ function initMainTechFilters() {
 }
 
 document.addEventListener('DOMContentLoaded', initMainTechFilters);
+
