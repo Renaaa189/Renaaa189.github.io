@@ -225,17 +225,194 @@ section {
 }
 
 /* SOBRE MI */
-.about-card {
-    background: var(--card-bg);
-    padding: 3rem;
-    border-radius: 30px;
-    border: 1px solid var(--border);
+#sobre-mi {
+    padding: 0;
 }
 
-.about-card p {
-    margin-bottom: 1.5rem;
-    color: #ccc;
-    font-size: 1.1rem;
+.about-section-bg {
+    width: 100%;
+    background: linear-gradient(90deg, #1a1c23 0%, #21252f 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    z-index: 1;
+}
+
+.about-section-bg .container {
+    padding: 80px 0;
+}
+
+.about-section-bg .centered-title {
+    margin-bottom: 1.8rem;
+}
+
+.about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-text {
+    display: grid;
+    gap: 1.3rem;
+}
+
+.about-text p {
+    margin: 0;
+    color: #d2d8e6;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.about-visual {
+    position: relative;
+    min-height: 500px;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.visual-deco {
+    background: rgb(20, 20, 20); /* Color oscuro base */
+    box-shadow: 0 0 60px rgba(168, 85, 247, 0.15); /* Un resplandor violeta muy suave que no molesta */
+    border-radius: 24px;
+}
+
+.visual-panel {
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 30px;
+    padding: 2.2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.visual-panel::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 80px;
+    height: 80px;
+    background: rgba(127, 213, 255, 0.12);
+    border-radius: 22px;
+}
+
+.sticky-cards {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.sticky-step {
+    min-height: 300px;
+}
+
+.sticky-card {
+    position: sticky;
+    top: 1.7rem;
+    padding: 1.8rem;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(16px);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sticky-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sticky-card h4 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.sticky-card p {
+    margin: 0;
+    color: #cbd4e4;
+    line-height: 1.8;
+}
+
+.visual-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(127, 213, 255, 0.12);
+    color: var(--accent);
+    font-weight: 700;
+    width: fit-content;
+}
+
+.visual-panel h3 {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+}
+
+.visual-panel p {
+    margin: 0;
+    color: #d2d8e6;
+    line-height: 1.8;
+}
+
+.visual-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.visual-list li {
+    position: relative;
+    padding-left: 1.6rem;
+    color: #cbd4e4;
+    line-height: 1.7;
+}
+
+.visual-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+
+
+    .visual-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-top: 1rem;
+    }
+
+    .visual-tags span {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.55rem 1rem;
+        border-radius: 999px;
+        background: rgba(127, 213, 255, 0.08);
+        color: #d2d8e6;
+        font-size: 0.95rem;
+        border: 1px solid rgba(127, 213, 255, 0.14);
+    }
+
+    .visual-panel {
+        min-height: 340px;
+    }
 }
 
 /* HABILIDADES BLANDAS */
@@ -1322,3 +1499,123 @@ footer {
     align-items: center;
     gap: 1rem;
 }
+
+/* ========================================================
+   EFECTO DE SUPERPOSICIÓN DE TARJETAS (ORDER EAT STYLE)
+   ======================================================== */
+
+/* Contenedor de los bloques */
+.sticky-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+}
+
+/* Hacemos que cada contenedor sea sticky */
+.sticky-step {
+    position: sticky;
+    top: 140px; /* Altura en la pantalla donde se va a clavar la tarjeta */
+    margin-bottom: 160px; /* Espacio de scroll para que la siguiente tarjeta suba */
+}
+
+/* La última tarjeta no necesita margen inferior */
+.sticky-step:last-child {
+    margin-bottom: 0;
+}
+
+/* Forzamos que la tarjeta tenga fondo oscuro y sólido para que tape a la de abajo */
+.sticky-card {
+    background: #0b0f17 !important; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.6); /* Sombra superior para dar efecto de capas */
+    transition: transform 0.3s ease;
+}
+
+/* Bordes de color sutil personalizados para combinar con tu portfolio (Opcional) */
+.card-backend .sticky-card {
+    border-color: rgba(160, 140, 255, 0.3); /* Lila */
+}
+.card-frontend .sticky-card {
+    border-color: rgba(255, 150, 200, 0.3); /* Rosa */
+}
+.card-habilidades .sticky-card {
+    border-color: rgba(127, 213, 255, 0.3); /* Celeste */
+}
+.card-herramientas .sticky-card {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Congelar el texto de la izquierda mientras las tarjetas se apilan */
+.about-text {
+    position: sticky;
+    top: 140px;          /* La misma altura a la que se clavan las tarjetas */
+    height: max-content;  /* Evita que se estire innecesariamente */
+}
+
+/* Contenedor de los íconos inferiores */
+.card-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+/* Transformamos los spans en círculos de diseño para los íconos */
+.card-tags span {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%; /* Círculo perfecto */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem; /* Tamaño ideal del ícono */
+    color: #cfe8ff;
+    transition: all 0.3s ease;
+    cursor: help; /* Cambia el cursor para indicar que tiene una etiqueta flotante */
+}
+
+/* Efecto iluminación individual al pasar el mouse por cada ícono */
+.card-tags span:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    color: #white;
+}
+
+/* Separar la columna de texto de la izquierda de las tarjetas de la derecha */
+.about-grid {
+    column-gap: 6rem !important; /* Aumenta el espacio horizontal entre columnas */
+}
+
+/* Por si acaso te referías al texto de ADENTRO de las tarjetas: */
+.sticky-card p {
+    margin-top: 12px;    /* Más separación con el título de arriba */
+    margin-bottom: 30px; /* Más separación con los íconos de abajo */
+}
+
+/* Separar la columna de texto de la izquierda de las tarjetas de la derecha */
+.about-grid {
+    column-gap: 6rem !important; /* Aumenta el espacio horizontal entre columnas */
+}
+
+/* Por si acaso te referías al texto de ADENTRO de las tarjetas: */
+.sticky-card p {
+    margin-top: 12px;    /* Más separación con el título de arriba */
+    margin-bottom: 30px; /* Más separación con los íconos de abajo */
+}
+/* Separar la columna de texto de la izquierda de las tarjetas de la derecha */
+.about-grid {
+    column-gap: 6rem !important; /* Aumenta el espacio horizontal entre columnas */
+}
+
+/* Por si acaso te referías al texto de ADENTRO de las tarjetas: */
+.sticky-card p {
+    margin-top: 12px;    /* Más separación con el título de arriba */
+    margin-bottom: 30px; /* Más separación con los íconos de abajo */
+}
+
