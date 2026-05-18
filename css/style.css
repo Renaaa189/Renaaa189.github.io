@@ -1584,7 +1584,7 @@ footer {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
-    color: #white;
+    color: white;
 }
 
 /* Separar la columna de texto de la izquierda de las tarjetas de la derecha */
@@ -1617,5 +1617,45 @@ footer {
 .sticky-card p {
     margin-top: 12px;    /* Más separación con el título de arriba */
     margin-bottom: 30px; /* Más separación con los íconos de abajo */
+}
+
+/* ==========================================================================
+   PERSONAJE LEYENDO (TAMAÑO GRANDE 180PX - BORDE IZQUIERDO)
+   ========================================================================== */
+
+   .contact-form {
+    position: relative;
+}
+
+.pixel-character-contacto {
+    position: absolute;
+    bottom: -10px;    /* Bien apoyado en el piso del formulario */
+    left: -150px;     /* Lo alejamos un poco a la izquierda para que respire */
+    width: 180px;     /* Tamaño grande e imponente */
+    height: 180px;
+    cursor: pointer;
+    z-index: 10;
+    
+    /* Cargamos tu grilla */
+    background-image: url('../assets/img/personaje_grilla.png');
+    background-repeat: no-repeat;
+    background-size: 720px 540px; /* Escalado perfecto para cuadros de 180px */
+    
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    transition: transform 0.2s ease;
+}
+
+.pixel-character-contacto:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 950px) {
+    .pixel-character-contacto {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin: 30px auto 0 auto; /* Se centra abajo en pantallas chicas */
+    }
 }
 

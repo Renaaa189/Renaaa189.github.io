@@ -466,3 +466,68 @@ function initMainTechFilters() {
 
 document.addEventListener('DOMContentLoaded', initMainTechFilters);
 
+document.addEventListener('DOMContentLoaded', () => {
+    const char = document.getElementById('pixelCharacter');
+    if (!char) return;
+
+    // Medidas de cada cuadro adaptadas al tamaño grande de 180px
+    const frameWidth = 180;
+    const frameHeight = 180;
+
+    let isClicked = false;
+    let currentFrame = 0;
+
+    // Secuencia de lectura (Fila 1 y 2)
+    const lecturaFrames = [
+        {x: 0, y: 0}, {x: 1, y: 0}, {x: 2, y: 0}, {x: 3, y: 0},
+        {x: 0, y: 1}, {x: 1, y: 1}, {x: 2, y: 1}, {x: 3, y: 1}
+    ];
+
+    // Secuencia de click (Fila 3)
+    const clickFrames = [
+        {x: 0, y: 2}, // Levanta mirada
+        {x: 1, y: 2}, // Aparece ?
+        {x: 2, y: 2}, // Se acomoda ?
+        {x: 3, y: 2}  // Pose final fija
+    ];
+
+    function animate() {
+        if (!isClicked) {
+            const frame = lecturaFrames[currentFrame % lecturaFrames.length];
+            char.style.backgroundPosition = `-${frame.x * frameWidth}px -${frame.y * frameHeight}px`;
+            currentFrame++;
+            setTimeout(animate, 300); // Velocidad al leer
+        }
+    }
+
+    char.addEventListener('click', () => {
+        if (isClicked) return;
+        isClicked = true;
+        
+        let clickIndex = 0;
+        
+        function playClickAnim() {
+            if (clickIndex < clickFrames.length) {
+                const frame = clickFrames[clickIndex];
+                char.style.backgroundPosition = `-${frame.x * frameWidth}px -${frame.y * frameHeight}px`;
+                
+                // Se queda quieta mirando con el "?" sostenido
+                if (clickIndex === clickFrames.length - 1) {
+                    setTimeout(() => {
+                        isClicked = false;
+                        currentFrame = 0;
+                        animate(); // Vuelve al libro
+                    }, 1500); // Mantiene la mirada 1.5 segundos
+                } else {
+                    clickIndex++;
+                    setTimeout(playClickAnim, 150);
+                }
+            }
+        }
+        
+        playClickAnim();
+    });
+
+    animate();
+});
+
