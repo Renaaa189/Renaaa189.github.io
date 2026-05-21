@@ -14,80 +14,46 @@ const particleColors = [
     'rgba(255,150,200,0.38)', // rosa
     'rgba(127,213,255,0.42)'  // celeste
 ];
-
 let particles = [];
 
 function initCanvas() {
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
 }
 
 window.addEventListener('resize', initCanvas);
-
 initCanvas();
 
 class Particle {
-
     constructor() {
         this.reset();
     }
-
     reset() {
-
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-
-        // make a small chance of larger, more visible particles
         if (Math.random() < 0.12) {
-            this.size = Math.random() * 10 + 3; // larger bubble
+            this.size = Math.random() * 10 + 3;
         } else {
-            this.size = Math.random() * 3 + 0.6; // normal small particle
+            this.size = Math.random() * 3 + 0.6;
         }
-
-        // velocity scales slightly with size for natural motion
         const speedFactor = 0.45 + Math.min(this.size / 20, 0.6);
         this.vx = (Math.random() - 0.5) * speedFactor;
         this.vy = (Math.random() - 0.5) * speedFactor;
         this.color = particleColors[Math.floor(Math.random() * particleColors.length)];
-
     }
-
     update() {
-
         this.x += this.vx;
         this.y += this.vy;
-
-        if (
-            this.x < 0 ||
-            this.x > canvas.width ||
-            this.y < 0 ||
-            this.y > canvas.height
-        ) {
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
             this.reset();
         }
-
     }
-
     draw() {
-
         ctx.fillStyle = this.color;
-
         ctx.beginPath();
-
-        ctx.arc(
-            this.x,
-            this.y,
-            this.size,
-            0,
-            Math.PI * 2
-        );
-
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
-
     }
-
 }
 
 for (let i = 0; i < 120; i++) {
@@ -95,110 +61,50 @@ for (let i = 0; i < 120; i++) {
 }
 
 function animate() {
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((p) => {
-
         p.update();
         p.draw();
-
     });
-
     requestAnimationFrame(animate);
-
 }
-
 animate();
 
 // NAV
 window.addEventListener('scroll', () => {
-
-    const nav =
-        document.querySelector('nav');
-
+    const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
-
-        nav.style.padding =
-            '0.8rem 0';
-
-        nav.style.background =
-            'rgba(5,5,5,0.9)';
-
+        nav.style.padding = '0.8rem 0';
+        nav.style.background = 'rgba(5,5,5,0.9)';
     } else {
-
-        nav.style.padding =
-            '1.5rem 0';
-
-        nav.style.background =
-            'rgba(5,5,5,0.7)';
+        nav.style.padding = '1.5rem 0';
+        nav.style.background = 'rgba(5,5,5,0.7)';
     }
-
 });
 
 // CURSOR LIGHT
-const cursorLight =
-    document.getElementById('cursor-light');
-
+const cursorLight = document.getElementById('cursor-light');
 window.addEventListener('mousemove', (e) => {
-
-    cursorLight.style.left =
-        `${e.clientX}px`;
-
-    cursorLight.style.top =
-        `${e.clientY}px`;
-
-    cursorLight.style.opacity =
-        '1';
-
+    cursorLight.style.left = `${e.clientX}px`;
+    cursorLight.style.top = `${e.clientY}px`;
+    cursorLight.style.opacity = '1';
 });
-
 document.addEventListener('mouseleave', () => {
-
-    cursorLight.style.opacity =
-        '0';
-
+    cursorLight.style.opacity = '0';
 });
 
-// CERTIFICADOS
-const certButtons =
-    document.querySelectorAll('.cert-btn');
-
-certButtons.forEach((btn) => {
-
-    btn.addEventListener('click', () => {
-
-        const preview =
-            btn.nextElementSibling;
-
-        preview.classList.toggle('active');
-
+// ACORDEÓN TRAYECTORIA (Nuevo)
+const trayectoriaCards = document.querySelectorAll('.trayectoria-card');
+trayectoriaCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const isActive = card.classList.contains('active');
+        // Quitar la clase active de todas las demás para mantener orden visual (opcional, acordeón cerrado)
+        trayectoriaCards.forEach(c => c.classList.remove('active'));
+        if (!isActive) {
+            card.classList.add('active');
+        }
     });
-
 });
-
-const stickyCards = document.querySelectorAll('.sticky-card');
-
-if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.25
-    });
-
-    stickyCards.forEach((card) => revealObserver.observe(card));
-} else {
-    stickyCards.forEach((card) => card.classList.add('visible'));
-}
 
 // PROJECT MODAL + CAROUSEL
 const projectModal = document.getElementById('project-modal');
@@ -270,11 +176,10 @@ let currentSlideIndex = 0;
 function buildProjectSlides(images) {
     carouselSlides.innerHTML = '';
     carouselSlides.style.transform = 'translateX(0)';
-
     if (!images || images.length === 0) {
         const placeholder = document.createElement('div');
         placeholder.className = 'carousel-slide';
-        placeholder.innerHTML = '<div class="carousel-placeholder">No hay imágenes disponibles aún. En este proyecto se muestra la descripción completa y las tecnologías utilizadas.</div>';
+        placeholder.innerHTML = '<div class="carousel-placeholder">No hay imágenes disponibles aún.<br><br>En este proyecto se muestra la descripción completa y las tecnologías utilizadas.</div>';
         carouselSlides.appendChild(placeholder);
         prevButton.style.display = 'none';
         nextButton.style.display = 'none';
@@ -284,14 +189,12 @@ function buildProjectSlides(images) {
     images.forEach((src) => {
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
-
         const image = document.createElement('img');
         image.src = src;
         image.alt = `${projectData[currentProjectIndex].title} imagen`;
         slide.appendChild(image);
         carouselSlides.appendChild(slide);
     });
-
     prevButton.style.display = images.length > 1 ? 'grid' : 'none';
     nextButton.style.display = images.length > 1 ? 'grid' : 'none';
 }
@@ -319,7 +222,6 @@ function buildLinkButtons(project) {
     githubLink.rel = 'noopener noreferrer';
     githubLink.innerHTML = '<i class="fab fa-github"></i> Ver GitHub';
     modalLinks.appendChild(githubLink);
-
     if (project.live) {
         const liveLink = document.createElement('a');
         liveLink.href = project.live;
@@ -342,7 +244,7 @@ function openProjectModal(index) {
     updateCarousel();
     projectModal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    // update modal nav buttons visibility (no wrap)
+    
     const nextBtn = projectModal.querySelector('.modal-next-project');
     const prevBtn = projectModal.querySelector('.modal-prev-project');
     if (nextBtn) nextBtn.style.display = (currentProjectIndex < projectData.length - 1) ? 'grid' : 'none';
@@ -362,10 +264,9 @@ projectCards.forEach((card) => {
     });
 });
 
-// card-level next buttons removed: navigation now only inside modal
-
 modalClose.addEventListener('click', closeProjectModal);
 modalOverlay.addEventListener('click', closeProjectModal);
+
 nextButton.addEventListener('click', () => {
     const images = projectData[currentProjectIndex].images;
     if (images.length > 1) {
@@ -373,6 +274,7 @@ nextButton.addEventListener('click', () => {
         updateCarousel();
     }
 });
+
 prevButton.addEventListener('click', () => {
     const images = projectData[currentProjectIndex].images;
     if (images.length > 1) {
@@ -383,25 +285,17 @@ prevButton.addEventListener('click', () => {
 
 window.addEventListener('keydown', (event) => {
     if (!projectModal.classList.contains('open')) return;
-    if (event.key === 'Escape') {
-        closeProjectModal();
-    }
-    if (event.key === 'ArrowRight') {
-        nextButton.click();
-    }
-    if (event.key === 'ArrowLeft') {
-        prevButton.click();
-    }
+    if (event.key === 'Escape') closeProjectModal();
+    if (event.key === 'ArrowRight') nextButton.click();
+    if (event.key === 'ArrowLeft') prevButton.click();
 });
 
-// Add a next-project button inside the modal to jump to the next project
+// Modal Next/Prev Project Navigation
 (function addModalNextProjectButton() {
     const modalNextBtn = document.createElement('button');
     modalNextBtn.className = 'modal-next-project';
     modalNextBtn.setAttribute('aria-label', 'Siguiente proyecto');
     modalNextBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
-
-    // append to the modal (positioned absolute)
     projectModal.appendChild(modalNextBtn);
 
     modalNextBtn.addEventListener('click', (e) => {
@@ -412,7 +306,7 @@ window.addEventListener('keydown', (event) => {
             openProjectModal(nextId);
         }
     });
-    // previous project button
+
     const modalPrevBtn = document.createElement('button');
     modalPrevBtn.className = 'modal-prev-project';
     modalPrevBtn.setAttribute('aria-label', 'Proyecto anterior');
@@ -427,14 +321,13 @@ window.addEventListener('keydown', (event) => {
             openProjectModal(prevId);
         }
     });
-
 })();
 
-// MAIN TECHNOLOGIES FILTERS
+// FILTRO DE TECNOLOGÍAS (Corregido)
 function initMainTechFilters() {
     const filterButtons = document.querySelectorAll('.tech-filter-btn');
     const techBoxes = document.querySelectorAll('.tech-center-grid .tech-box');
-
+    
     const categories = {
         frontend: ['tech-javascript', 'tech-react', 'tech-html', 'tech-css'],
         tools: ['tech-figma', 'tech-vscode', 'tech-eclipse', 'tech-poo'],
@@ -442,15 +335,17 @@ function initMainTechFilters() {
         db: ['tech-sql', 'tech-database', 'tech-sequelize']
     };
 
-    function apply(filterA) {
+    function apply(filterCategory) {
         techBoxes.forEach(box => {
-            if (filter === 'all') {
+            if (filterCategory === 'all') {
                 box.style.display = '';
                 return;
             }
             const cls = Array.from(box.classList);
-            const allowed = categories[filter] || [];
+            const allowed = categories[filterCategory] || [];
             const match = allowed.some(c => cls.includes(c));
+            
+            // Ocultamos las que no coinciden y mostramos las que sí
             box.style.display = match ? '' : 'none';
         });
     }
@@ -463,32 +358,29 @@ function initMainTechFilters() {
         });
     });
 }
-
 document.addEventListener('DOMContentLoaded', initMainTechFilters);
 
+// PIXEL CHARACTER ANIMATION
 document.addEventListener('DOMContentLoaded', () => {
     const char = document.getElementById('pixelCharacter');
     if (!char) return;
 
-    // Medidas de cada cuadro adaptadas al tamaño grande de 180px
     const frameWidth = 180;
     const frameHeight = 180;
 
     let isClicked = false;
     let currentFrame = 0;
 
-    // Secuencia de lectura (Fila 1 y 2)
     const lecturaFrames = [
         {x: 0, y: 0}, {x: 1, y: 0}, {x: 2, y: 0}, {x: 3, y: 0},
         {x: 0, y: 1}, {x: 1, y: 1}, {x: 2, y: 1}, {x: 3, y: 1}
     ];
 
-    // Secuencia de click (Fila 3)
     const clickFrames = [
-        {x: 0, y: 2}, // Levanta mirada
-        {x: 1, y: 2}, // Aparece ?
-        {x: 2, y: 2}, // Se acomoda ?
-        {x: 3, y: 2}  // Pose final fija
+        {x: 0, y: 2}, 
+        {x: 1, y: 2}, 
+        {x: 2, y: 2}, 
+        {x: 3, y: 2}  
     ];
 
     function animate() {
@@ -496,14 +388,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const frame = lecturaFrames[currentFrame % lecturaFrames.length];
             char.style.backgroundPosition = `-${frame.x * frameWidth}px -${frame.y * frameHeight}px`;
             currentFrame++;
-            setTimeout(animate, 300); // Velocidad al leer
+            setTimeout(animate, 300);
         }
     }
 
     char.addEventListener('click', () => {
         if (isClicked) return;
         isClicked = true;
-        
         let clickIndex = 0;
         
         function playClickAnim() {
@@ -511,23 +402,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const frame = clickFrames[clickIndex];
                 char.style.backgroundPosition = `-${frame.x * frameWidth}px -${frame.y * frameHeight}px`;
                 
-                // Se queda quieta mirando con el "?" sostenido
                 if (clickIndex === clickFrames.length - 1) {
                     setTimeout(() => {
                         isClicked = false;
                         currentFrame = 0;
-                        animate(); // Vuelve al libro
-                    }, 1500); // Mantiene la mirada 1.5 segundos
+                        animate();
+                    }, 1500); 
                 } else {
                     clickIndex++;
                     setTimeout(playClickAnim, 150);
                 }
             }
         }
-        
         playClickAnim();
     });
 
     animate();
 });
-
