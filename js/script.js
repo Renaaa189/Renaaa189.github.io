@@ -147,10 +147,10 @@ const projectData = [
     {
         title: 'NextRead',
         description: 'NextRead es una plataforma moderna y social para descubrir, compartir y conectar a través de libros. Permite a los usuarios explorar un extenso catálogo de obras, dejar reseñas, dar likes, seguir a otros lectores y recibir notificaciones en tiempo real. Cuenta con funcionalidades como la gestión de libros, perfil de usuario, reseñas y calificaciones, red social, seguridad y autenticación, administración y listas personalizadas.',
-        tech: ['HTML', 'React', 'Vite', 'CSS3', 'JavaScript', 'Node.js', 'Express.js', 'Sequelize', 'MySQL', 'Figma', 'Framer Motion', 'Lucide React', 'React Router', 'Axios', 'JWT', 'bcrypt', 'Canva'],
+        tech: ['HTML', 'React', 'Vite', 'CSS3', 'JavaScript', 'Node.js', 'Express.js', 'Sequelize', 'MySQL', 'Figma', 'Framer Motion', 'Lucide React', 'React Router', 'Axios', 'JWT', 'bcrypt'],
         images: ['assets/img/NextRead.PNG', 'assets/img/NextRead1.PNG'],
         github: 'https://github.com/AlejoGuerraa/nextRead.git',
-        live: 'https://nextread.net'
+        live: null
     },
     {
         title: 'NetStat',
@@ -167,6 +167,13 @@ const projectData = [
         images: ['assets/img/Almendra.PNG', 'assets/img/Almendra1.PNG', 'assets/img/Almendra2.PNG'],
         github: 'https://github.com/Renaaa189/Almendra.git',
         live: 'https://renaaa189.github.io/Almendra/'
+    },
+    {   title: 'Hopmark', 
+        description: 'Hopmark es un sistema de gestión académica desarrollado para administrar estudiantes, carreras universitarias, materias y calificaciones dentro de una única plataforma. El proyecto busca garantizar la coherencia del recorrido académico de cada estudiante mediante un conjunto de validaciones que controlan la relación entre carrera, año cursado e historial de materias. De esta forma, el sistema puede detectar inconsistencias académicas y mantener registros estructurados y confiables.', 
+        tech: ['HTML', 'React', 'Vite', 'CSS3', 'JavaScript', 'Node.js', 'Express.js', 'Sequelize', 'MySQL', 'React Router', 'Axios'], 
+        images: ['assets/img/Hopmark.PNG', 'assets/img/Hopmark1.PNG', 'assets/img/Hopmark2.PNG'], 
+        github: 'https://github.com/Renaaa189/Hopmark.git', 
+        live: null
     }
 ];
 
