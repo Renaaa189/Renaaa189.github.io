@@ -593,7 +593,11 @@ section {
 .tech-eclipse:hover i { color: #2c2255; }
 .tech-sequelize:hover i { color: #00b2d8; }
 .tech-poo:hover i { color: #ff85c0; }
+.tech-express:hover i { color: #e7db35; }
 .tech-database:hover i { color: #9cdbff; }
+.tech-mongodb:hover i { color: #00ED64; }
+.tech-git:hover i { color: #F1502F; }
+.tech-github:hover i { color: #FFFFFF; }
 
 .extra-exp {
     margin-top: 4rem;

@@ -337,9 +337,9 @@ function initMainTechFilters() {
     
     const categories = {
         frontend: ['tech-javascript', 'tech-react', 'tech-html', 'tech-css'],
-        tools: ['tech-figma', 'tech-vscode', 'tech-eclipse', 'tech-poo'],
-        backend: ['tech-node', 'tech-java', 'tech-python', 'tech-sequelize'],
-        db: ['tech-sql', 'tech-database', 'tech-sequelize']
+        tools: ['tech-figma', 'tech-vscode', 'tech-eclipse', 'tech-poo', 'tech-git', 'tech-github'],
+        backend: ['tech-node', 'tech-java', 'tech-python', 'tech-sequelize', 'tech-express'],
+        db: ['tech-sql', 'tech-database', 'tech-sequelize', 'tech-mongodb']
     };
 
     function apply(filterCategory) {
