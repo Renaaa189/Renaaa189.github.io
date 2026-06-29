@@ -114,6 +114,7 @@ const modalClose = projectModal.querySelector('.modal-close');
 const carouselSlides = projectModal.querySelector('.carousel-slides');
 const modalTitle = projectModal.querySelector('.project-modal-title');
 const modalDescription = projectModal.querySelector('.project-modal-description');
+const modalBadge = projectModal.querySelector('.modal-badge');
 const modalTech = projectModal.querySelector('.project-modal-tech');
 const modalLinks = projectModal.querySelector('.project-modal-links');
 const nextButton = projectModal.querySelector('.carousel-next');
@@ -131,8 +132,8 @@ const projectData = [
     {
         title: 'KnowBeat',
         description: 'Knowbeat es un sitio web social orientado al aprendizaje musical, tanto teórico como práctico, en la cual cualquier persona, con o sin conocimientos previos, puede ingresar, aprender y practicar con lecciones didácticas divididas por secciones tematizadas. A su vez, nuestro sitio cuenta con una comunidad en la cual múltiples personas pueden interactuar con publicaciones de otros miembros, lo cual permite que los usuarios aprendan y puedan despejar dudas posibles. Cuenta con múltiples funcionalidades de red social, mensajería, ejercicios personalizados, clases guiadas y experiencia del usuario.',
-        tech: ['JavaScript', 'React', 'MySQL', 'Node.js', 'JWT', 'Figma', 'CSS', 'HTML', 'MongoDB'],
-        images: [],
+        tech: ['JavaScript', 'React', 'MySQL', 'Node.js', 'JWT', 'Figma', 'CSS', 'HTML', 'MongoDB', 'Docker'],
+        images: ['assets/img/Knowbeat.png', 'assets/img/Knowbeat1.png'],
         github: 'https://github.com/Santino7537/Knowbeat.git',
         live: null
     },
@@ -150,7 +151,8 @@ const projectData = [
         tech: ['HTML', 'React', 'Vite', 'CSS3', 'JavaScript', 'Node.js', 'Express.js', 'Sequelize', 'MySQL', 'Figma', 'Framer Motion', 'Lucide React', 'React Router', 'Axios', 'JWT', 'bcrypt'],
         images: ['assets/img/NextRead.PNG', 'assets/img/NextRead1.PNG'],
         github: 'https://github.com/AlejoGuerraa/nextRead.git',
-        live: null
+        live: null,
+        featured: true
     },
     {
         title: 'NetStat',
@@ -158,7 +160,8 @@ const projectData = [
         tech: ['java.io', 'java.util', 'BufferedReader', 'InputStreamReader', 'Swing', 'Java'],
         images: ['assets/img/NetStat.png', 'assets/img/NetStat1.PNG'],
         github: 'https://github.com/Renaaa189/NetStat.git',
-        live: null
+        live: null,
+        featured: true
     },
     {
         title: 'Almendra',
@@ -245,6 +248,7 @@ function openProjectModal(index) {
     const project = projectData[currentProjectIndex];
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.description;
+    modalBadge.textContent = project.featured ? 'Proyecto destacado' : 'Proyecto';
     buildTechList(project.tech);
     buildLinkButtons(project);
     buildProjectSlides(project.images);

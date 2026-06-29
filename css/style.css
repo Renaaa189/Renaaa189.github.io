@@ -1228,7 +1228,8 @@ footer {
 }
 
 /* STATUS DEV */
-.status-dev {
+.status-dev,
+.project-badge {
     background: rgba(127, 213, 255, 0.08);
     border: 1px solid var(--accent);
     color: var(--accent);
